@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1758998064 source:c:\users\cliente\desktop\ecoturismo\habitacion.cpp
+	"habitacion.h"
+	<iostream>
+	<string>
+
+1758997224 c:\users\cliente\desktop\ecoturismo\habitacion.h
+	<string>
+	<iostream>
+
+1759001322 source:c:\users\cliente\desktop\ecoturismo\main.cpp
+	<iostream>
+	<vector>
+	<limits>
+	"turista.h"
+	"habitacion.h"
+	"tour.h"
+
+1758999483 c:\users\cliente\desktop\ecoturismo\turista.h
+	<string>
+	<iostream>
+
+1758997389 c:\users\cliente\desktop\ecoturismo\tour.h
+	<string>
+	<iostream>
+
+1758998064 source:c:\users\cliente\desktop\ecoturismo\tour.cpp
+	"tour.h"
+	<iostream>
+	<string>
+
+1758999483 source:c:\users\cliente\desktop\ecoturismo\turista.cpp
+	"turista.h"
+	<iostream>
+	<string>
+
