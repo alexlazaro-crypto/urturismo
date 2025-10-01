@@ -17,4 +17,26 @@ void Turista::mostrarInfo() const {
     cout << "Fecha salida: " << fecha_salida.toString() << endl;
     cout << "Habitación: " << numero_habitacion << endl;
     cout << "Comida: " << comida << endl;
+
+
+
+
+
+
+
+
+
+    cout << "Comida: " << comida << endl;
+
+
+    cout << "Tours asignados (" << tours_asignados.size() << "): ";
+    if (tours_asignados.empty()) {
+        cout << "Ninguno" << endl;
+    } else {
+        cout << "[ ";
+        for (int id : tours_asignados) {
+            cout << id << " ";
+        }
+        cout << "]" << endl;
+    }
 }

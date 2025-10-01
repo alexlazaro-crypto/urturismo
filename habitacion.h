@@ -14,4 +14,4 @@ public:
     void mostrarInfo() const;
 };
 
-#endif // HABITACION_H_INCLUDED
+#endif

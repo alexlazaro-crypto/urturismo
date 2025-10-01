@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 struct Fecha {
     int dia, mes, ano;
@@ -19,8 +20,15 @@ public:
     int numero_habitacion;
     std::string comida;
 
+
+
+
+
+    std::vector<int> tours_asignados;
+
     void mostrarInfo() const;
+
 };
 
 
-#endif // TURISTA_H_INCLUDED
+#endif

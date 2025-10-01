@@ -8,7 +8,7 @@
 
 using namespace std;
 
-// Prototipos de funciones
+
 void mostrarMenuPrincipal();
 void registrarTurista(vector<Turista>& turistas, const vector<Habitacion>& habitaciones);
 void mostrarTuristas(const vector<Turista>& turistas);
@@ -30,19 +30,19 @@ int main() {
     habitaciones.push_back({102, 75.0, "Doble", "Disponible"});
     habitaciones.push_back({103, 100.0, "Matrimonial", "Mantenimiento"});
 
-    tours.push_back({1, "City Tour", 25.0, "Carlos Pérez"});
-    tours.push_back({2, "Tour Playa", 35.0, "Ana Gómez"});
-    tours.push_back({3, "Tour Montaña", 45.0, "Luis Rodríguez"});
+    tours.push_back({1, "Tour Museo UrusAndino", 25.0, "Carlos Perez"});
+    tours.push_back({2, "Tour Mamanica", 35.0, "Ana Gomez"});
+    tours.push_back({3, "Tour Ayparavi", 45.0, "Luis Rodriguez"});
 
     int opcion;
 
     cout << "=========================================" << endl;
-    cout << "   SISTEMA DE GESTION TURISTICA v1.0" << endl;
+    cout << "       SISTEMA DE GESTION TURISTICA "      << endl;
     cout << "=========================================" << endl;
 
     do {
         mostrarMenuPrincipal();
-        cout << "Seleccione una opcion (1-6): ";
+        cout << "Seleccione una opcion (1 al 6): ";
         opcion = leerEntero("");
 
         switch(opcion) {
@@ -62,15 +62,14 @@ int main() {
                 asignarTourTurista(turistas, tours);
                 break;
             case 6:
-                cout << "Saliendo del sistema... ¡Hasta pronto!" << endl;
+                cout << "Saliendo del sistema......" << endl;
                 break;
             default:
-                cout << " Opcion no válida! Intente con 1-6." << endl;
+                cout << " Opcion no válida. Intente con 1-6." << endl;
         }
 
         cout << endl;
-        system("pause"); // Pausa para ver resultados (Windows)
-        // system("read -p 'Presione Enter...'"); // Para Linux/Mac
+        system("pause");
 
     } while (opcion != 6);
 
@@ -107,7 +106,7 @@ void registrarTurista(vector<Turista>& turistas, const vector<Habitacion>& habit
     nuevo.fecha_salida.mes = leerEntero("Mes: ");
     nuevo.fecha_salida.ano = leerEntero("Anio: ");
 
-    // Mostrar habitaciones disponibles
+    ////// habitaciones disponibles
     cout << "\nHabitaciones registradas:" << endl;
     for (const auto& hab : habitaciones) {
         hab.mostrarInfo();
@@ -115,12 +114,12 @@ void registrarTurista(vector<Turista>& turistas, const vector<Habitacion>& habit
 
     nuevo.numero_habitacion = leerEntero("Numero de habitacion: ");
 
-    // Validar que la habitación existe
+    //// Validacion
     if (!habitacionExiste(habitaciones, nuevo.numero_habitacion)) {
         cout << " Advertencia: La habitacion no existe en el sistema." << endl;
     }
 
-    nuevo.comida = leerString("Preferencia de comida: ");
+    nuevo.comida = leerString("menu de comida: ");
 
     turistas.push_back(nuevo);
     cout << " Turista registrado exitosamente!" << endl;
@@ -188,7 +187,7 @@ void gestionarTours(vector<Tour>& tours) {
             }
         } else if (opcion == 2) {
             Tour nuevo;
-            nuevo.numero_tours = leerEntero("ID del tour: ");
+            nuevo.numero_tours = leerEntero("Nro del tour: ");
             nuevo.destino = leerString("Destino: ");
             cout << "Costo: ";
             cin >> nuevo.costo;
@@ -201,7 +200,7 @@ void gestionarTours(vector<Tour>& tours) {
     } while (opcion != 3);
 }
 
-// Funciones auxiliares
+// Funciones aux...vhgcgf
 int leerEntero(const string& mensaje) {
     int valor;
     if (!mensaje.empty()) cout << mensaje;
@@ -210,7 +209,7 @@ int leerEntero(const string& mensaje) {
         cin.clear();
         cin.ignore(10000, '\n');
     }
-    cin.ignore(); // Limpiar buffer
+    cin.ignore();
     return valor;
 }
 
@@ -242,14 +241,65 @@ bool tourExiste(const vector<Tour>& tours, int id) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 void asignarTourTurista(vector<Turista>& turistas, const vector<Tour>& tours) {
+    int id_turista, id_tour;
 
     cout << "\n--- ASIGNAR TOUR A TURISTA ---" << endl;
 
-    if (turistas.empty() || tours.empty()) {
-        cout << " No hay turistas o tours registrados para realizar la asignacion." << endl;
+    if (turistas.empty()) {
+        cout << " No hay turistas registrados." << endl;
+        return;
+    }
+    if (tours.empty()) {
+        cout << " No hay tours registrados." << endl;
         return;
     }
 
-    cout << "Esta funcion debe ser completada con la logica de asignacion." << endl;
+
+    cout << "\n--- Turistas Disponibles ---" << endl;
+    for (size_t i = 0; i < turistas.size(); ++i) {
+        cout << "INDICE [" << i + 1 << "] - CI: " << turistas[i].ci << ", Nombre: " << turistas[i].nombre << endl;
+    }
+
+    int indice_turista = leerEntero("Ingrese el INDICE del turista a asignar: ") - 1;
+
+    if (indice_turista < 0 || indice_turista >= turistas.size()) {
+        cout << " Indice de turista no valido." << endl;
+        return;
+    }
+
+    Turista& turista_seleccionado = turistas[indice_turista];
+    cout << " Turista seleccionado: " << turista_seleccionado.nombre << endl;
+
+
+    cout << "\n--- Tours Disponibles ---" << endl;
+
+    for (const auto& tour : tours) {
+        tour.mostrarInfo();
+    }
+
+    id_tour = leerEntero("Ingrese el Nro del tour que desea asignar: ");
+
+
+    if (!tourExiste(tours, id_tour)) {
+        cout << " El Nro del tour (" << id_tour << ") no existe en el sistema." << endl;
+        return;
+    }
+
+
+    turista_seleccionado.tours_asignados.push_back(id_tour);
+
+    cout << "\n Tour (Nro: " << id_tour << ") asignado exitosamente a " << turista_seleccionado.nombre << "." << endl;
+    cout << "Total de tours de este turista: " << turista_seleccionado.tours_asignados.size() << endl;
 }

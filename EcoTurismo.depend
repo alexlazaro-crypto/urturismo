@@ -34,3 +34,39 @@
 	<iostream>
 	<string>
 
+1759083734 source:c:\users\cliente\downloads\ecoturismo\habitacion.cpp
+	"habitacion.h"
+	<iostream>
+	<string>
+
+1759083203 c:\users\cliente\downloads\ecoturismo\habitacion.h
+	<string>
+	<iostream>
+
+1759085967 source:c:\users\cliente\downloads\ecoturismo\main.cpp
+	<iostream>
+	<vector>
+	<limits>
+	"turista.h"
+	"habitacion.h"
+	"tour.h"
+
+1759087147 c:\users\cliente\downloads\ecoturismo\turista.h
+	<string>
+	<iostream>
+	<vector>
+
+1759083209 c:\users\cliente\downloads\ecoturismo\tour.h
+	<string>
+	<iostream>
+
+1759084274 source:c:\users\cliente\downloads\ecoturismo\tour.cpp
+	"tour.h"
+	<iostream>
+	<string>
+
+1759087189 source:c:\users\cliente\downloads\ecoturismo\turista.cpp
+	"turista.h"
+	<iostream>
+	<string>
+

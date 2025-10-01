@@ -16,4 +16,4 @@ public:
     void mostrarInfo() const;
 };
 
-#endif // TOUR_H_INCLUDED
+#endif

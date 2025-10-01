@@ -5,8 +5,8 @@
 using namespace std;
 
 void Habitacion::mostrarInfo() const {
-    cout << "Habitación #" << numero_habitacion;
+    cout << "Habitacion #" << numero_habitacion;
     cout << " - " << tipo;
-    cout << " - $" << tarifa;
+    cout << " - Bs" << tarifa;
     cout << " - " << estado << endl;
 }
